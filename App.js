@@ -7,7 +7,10 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native';
-
+import PropTypes from 'prop-types';
+import { 
+  Navigator, 
+} from 'react-native-deprecated-custom-components'
 const zenImage = require('./assets/zen.png')
 
 const instructions = Platform.select({
@@ -21,13 +24,20 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
-        <TouchableOpacity style={styles.button} onPress={() => { alert('I was pressed!')}}>
-          <Image source={zenImage} style={styles.buttonImage}></Image>
-        </TouchableOpacity>
-        <Text style={styles.readyText}>I'm ready to relax...</Text>
-      </View>
-    );
+      <Navigator
+        initialRoute={{ name: 'StartScreen' }}
+        renderScene={( route, navigator ) => {
+          return (
+            <View style={styles.container}>
+              <TouchableOpacity style={styles.button} onPress={() => { alert('I was pressed!')}}>
+                <Image source={zenImage} style={styles.buttonImage}></Image>
+              </TouchableOpacity>
+              <Text style={styles.readyText}>I'm ready to relax...</Text>
+            </View>
+          )
+        }}
+      />
+    )
   }
 }
 
