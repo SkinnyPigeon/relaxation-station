@@ -7,30 +7,21 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native';
-import PropTypes from 'prop-types';
-import { 
-  Navigator, 
-} from 'react-native-deprecated-custom-components'
 
-import StartScreen from './StartScreen'
-import QuoteScreen from './QuoteScreen'
-
+import Quote from './Quote'
+const zenImage = require('./assets/zen.png')
 
 type Props = {};
-export default class App extends Component<Props> {
+export default class StartScreen extends Component<Props> {
   render() {
     return (
-      <Navigator
-        initialRoute={{ name: 'StartScreen' }}
-        renderScene={( route, navigator ) => {
-          switch( route.name ) {
-            case 'StartScreen':
-              return <StartScreen />
-            case 'QuoteScreen':
-              return <QuoteScreen />
-          }
-        }}
-      />
+      <View style={styles.container}>
+        {/*<TouchableOpacity style={styles.button} onPress={() => { alert('I was pressed!')}}>
+          <Image source={zenImage} style={styles.buttonImage}></Image>
+        </TouchableOpacity>
+        <Text style={styles.readyText}>I'm ready to relax...</Text>*/}
+        <Quote quoteText="Amazing quote!" quoteSource="- Great Source!" />
+      </View>
     )
   }
 }
@@ -62,3 +53,4 @@ const styles = StyleSheet.create({
     height: 200,
   }
 });
+
