@@ -8,9 +8,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import PropTypes from 'prop-types';
-import { 
-  Navigator, 
-} from 'react-native-deprecated-custom-components'
+import { Navigator } from 'react-native-deprecated-custom-components'
 
 import StartScreen from './StartScreen'
 import QuoteScreen from './QuoteScreen'
@@ -25,7 +23,7 @@ export default class App extends Component<Props> {
         renderScene={( route, navigator ) => {
           switch( route.name ) {
             case 'StartScreen':
-              return <StartScreen />
+              return <StartScreen onStart={() => navigator.push({ name:'QuoteScreen' })}/>
             case 'QuoteScreen':
               return <QuoteScreen />
           }

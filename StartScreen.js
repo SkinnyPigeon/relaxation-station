@@ -16,7 +16,7 @@ export default class StartScreen extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity style={styles.button} onPress={() => { alert('I was pressed!')}}>
+        <TouchableOpacity style={styles.button} onPress={this.props.onStart}>
           <Image source={zenImage} style={styles.buttonImage}></Image>
         </TouchableOpacity>
         <Text style={styles.readyText}>I'm ready to relax...</Text>
