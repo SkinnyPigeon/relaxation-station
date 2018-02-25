@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
@@ -24,15 +18,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to My App!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+        <Text style={styles.readyText}>I'm ready to relax...</Text>
       </View>
     );
   }
@@ -45,15 +31,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#161737',
   },
-  welcome: {
+  readyText: {
     fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    color: '#FFFFFF'
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#DBDBDB',
-    marginBottom: 5,
-  },
+    fontStyle: 'italic',
+    color: '#ffffff',
+  }, 
 });
