@@ -6,7 +6,8 @@ import {
   View,
   Image,
   TouchableOpacity
-} from 'react-native';
+} from 'react-native'
+import Quote from './Quote'
 
 const zenImage = require('./assets/zen.png')
 
@@ -21,11 +22,19 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
+      {/*<Navigator
+        initialRoute={{ name: 'StartScreen'}}
+        renderScene={(route, navigator) => {
+          return (
+          )
+        }}
+      />*/}
       <View style={styles.container}>
-        <TouchableOpacity style={styles.button} onPress={() => { alert('I was pressed!')}}>
+        { /*<TouchableOpacity style={styles.button} onPress={() => { alert('I was pressed!')}}>
           <Image source={zenImage} style={styles.buttonImage}></Image>
         </TouchableOpacity>
-        <Text style={styles.readyText}>I'm ready to relax...</Text>
+        <Text style={styles.readyText}>I'm ready to relax...</Text> */}
+        <Quote quoteText='Amazing Quote' quoteSource='- Great Source'/>
       </View>
     );
   }
@@ -36,7 +45,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#161737',
+    backgroundColor: '#EFEFEF',
   },
   readyText: {
     fontSize: 20,
