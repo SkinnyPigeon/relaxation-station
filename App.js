@@ -12,11 +12,13 @@ import { Navigator } from 'react-native-deprecated-custom-components'
 
 import StartScreen from './StartScreen'
 import QuoteScreen from './QuoteScreen'
+const { quotes } = require( './quotes.json' )
 
 
 type Props = {};
 export default class App extends Component<Props> {
   render() {
+    const quote = quotes[2]
     return (
       <Navigator
         initialRoute={{ name: 'StartScreen' }}
@@ -25,7 +27,7 @@ export default class App extends Component<Props> {
             case 'StartScreen':
               return <StartScreen onStart={() => navigator.push({ name:'QuoteScreen' })}/>
             case 'QuoteScreen':
-              return <QuoteScreen />
+              return <QuoteScreen text={quote.text} source={quote.source}/>
           }
         }}
       />
