@@ -3,8 +3,12 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  Image,
+  TouchableOpacity
 } from 'react-native';
+
+const zenImage = require('./assets/zen.png')
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -18,6 +22,9 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
+        <TouchableOpacity style={styles.button} onPress={() => { alert('I was pressed!')}}>
+          <Image source={zenImage} style={styles.buttonImage}></Image>
+        </TouchableOpacity>
         <Text style={styles.readyText}>I'm ready to relax...</Text>
       </View>
     );
@@ -34,6 +41,20 @@ const styles = StyleSheet.create({
   readyText: {
     fontSize: 20,
     fontStyle: 'italic',
-    color: '#ffffff',
+    color: '#FFFFFF',
+  },
+  button: {
+    backgroundColor: '#859A9B',
+    borderRadius: 20,
+    padding: 10,
+    marginBottom: 20,
+    shadowColor: '#303838',
+    shadowOffset: { width: 0, height: 5 },
+    shadowRadius: 10,
+    shadowOpacity: 0.35,
   }, 
+  buttonImage: {
+    width: 200,
+    height: 200,
+  }
 });
