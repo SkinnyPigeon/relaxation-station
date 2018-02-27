@@ -17,8 +17,33 @@ const { quotes } = require( './quotes.json' )
 
 type Props = {};
 export default class App extends Component<Props> {
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      quoteIndex: 3,
+    }
+    this._incrementQuoteIndex = this._incrementQuoteIndex.bind(this)
+  }
+
+
+  _incrementQuoteIndex() {
+    let newIndex
+
+    if( this.state.quoteIndex + 1 === quotes.length ) {
+      newIndex = 0
+    } else {
+      newIndex = this.state.quoteIndex + 1
+    }
+
+    this.setState({
+      quoteIndex: newIndex,
+    })
+  }
+
   render() {
-    const quote = quotes[2]
+    const quote = quotes[this.state.quoteIndex]
     return (
       <Navigator
         initialRoute={{ name: 'StartScreen' }}
@@ -27,7 +52,7 @@ export default class App extends Component<Props> {
             case 'StartScreen':
               return <StartScreen onStart={() => navigator.push({ name:'QuoteScreen' })}/>
             case 'QuoteScreen':
-              return <QuoteScreen text={quote.text} source={quote.source}/>
+              return <QuoteScreen text={quote.text} source={quote.source}  onNextQuotePress={this._incrementQuoteIndex}/>
           }
         }}
       />
