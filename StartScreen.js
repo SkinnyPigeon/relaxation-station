@@ -16,10 +16,10 @@ export default class StartScreen extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity style={styles.button} onPress={this.props.onStart}>
-          <Image source={zenImage} style={styles.buttonImage}></Image>
+          <TouchableOpacity style={styles.button} onPress={this.props.onStart}>
+            <Image source={zenImage} style={styles.buttonImage}></Image>
+          <Text style={styles.readyText}>I'm ready to relax...</Text>
         </TouchableOpacity>
-        <Text style={styles.readyText}>I'm ready to relax...</Text>
       </View>
     )
   }
@@ -30,22 +30,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#EFEFEF',
+    backgroundColor: '#889DAD',
   },
   readyText: {
-    fontSize: 20,
+    fontSize: 22,
     fontStyle: 'italic',
     color: '#FFFFFF',
+    marginTop: 20,
   },
   button: {
-    backgroundColor: '#859A9B',
+    backgroundColor: '#889DAD',
     borderRadius: 20,
     padding: 10,
     marginBottom: 20,
-    shadowColor: '#303838',
-    shadowOffset: { width: 0, height: 5 },
-    shadowRadius: 10,
-    shadowOpacity: 0.35,
   }, 
   buttonImage: {
     width: 200,
