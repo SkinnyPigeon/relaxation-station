@@ -52,7 +52,12 @@ export default class App extends Component<Props> {
             case 'StartScreen':
               return <StartScreen onStart={() => navigator.push({ name:'QuoteScreen' })}/>
             case 'QuoteScreen':
-              return <QuoteScreen text={quote.text} source={quote.source}  onNextQuotePress={this._incrementQuoteIndex}/>
+              return (<QuoteScreen
+                  quoteId={this.state.quoteIndex} 
+                  text={quote.text} 
+                  source={quote.source}  
+                  onNextQuotePress={this._incrementQuoteIndex}
+              />)
           }
         }}
       />
